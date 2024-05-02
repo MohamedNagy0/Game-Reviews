@@ -50,6 +50,9 @@ a {
 /* End header */
 
 /* Start Nav */
+.nav-container {
+    top: -1px !important;
+}
 nav {
     background-color: #3f4471;
 }
