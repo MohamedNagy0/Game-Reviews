@@ -1,0 +1,175 @@
+/* Start Basic */
+body {
+    background-color: #383a4d;
+}
+
+/* Start scroll style */
+body::-webkit-scrollbar {
+    background-color: #ddd;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #3f4471;
+    border-radius: 20px;
+    border: 3px solid white;
+}
+/* end scroll style */
+
+h1 {
+    font-family: "Jersey 20", sans-serif;
+    letter-spacing: 1px;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+.fs-13 {
+    font-size: 13px;
+}
+.fs-14 {
+    font-size: 14px;
+}
+.orange {
+    background-color: #ee782e;
+}
+.blue {
+    background-color: #1f2756;
+}
+/* End Basic */
+
+/* Start header */
+.header-section {
+    background-image: linear-gradient(#525572ab, #525572ab),
+        url(../img/bg/hero.jpg);
+    background-size: cover;
+    min-height: 150px;
+}
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* End header */
+
+/* Start Nav */
+nav {
+    background-color: #3f4471;
+}
+ul li {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    transition: scale 350ms;
+}
+ul li:hover {
+    scale: 1.1;
+}
+
+h1 span:nth-of-type(1) {
+    color: #b8281b;
+}
+h1 span:nth-of-type(2) {
+    color: #1f2756;
+}
+.fa-bars {
+    cursor: pointer;
+}
+.active {
+    color: #ee782e;
+    font-weight: 900;
+}
+
+/* End Nav */
+
+/* Start Main */
+/* Start Game Cards */
+.inner-games {
+    background-color: #272834;
+    transition: 700ms;
+    cursor: pointer;
+}
+.inner-games:hover {
+    scale: 1.03;
+}
+/* End Game Cards */
+
+/* Start Game Info */
+.games-info {
+    max-width: 400px;
+    min-width: 460px;
+    background-color: #383a4d;
+    cursor: default;
+}
+.inner-img-info img {
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 600px;
+    max-height: 600px;
+    object-fit: contain;
+}
+.fa-circle-xmark {
+    top: 15px;
+    right: 50px;
+    cursor: pointer;
+}
+.blur-games-info {
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+}
+/* End Game Info */
+/* End Main */
+
+/* loading */
+.loader {
+    width: 40px;
+    aspect-ratio: 1;
+    color: #f03355;
+    position: relative;
+    background: radial-gradient(10px, currentColor 94%, #0000);
+}
+.loading {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+    background-color: #383a4d;
+}
+.loader:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(9px at bottom right, #0000 94%, currentColor)
+            top left,
+        radial-gradient(9px at bottom left, #0000 94%, currentColor) top right,
+        radial-gradient(9px at top right, #0000 94%, currentColor) bottom left,
+        radial-gradient(9px at top left, #0000 94%, currentColor) bottom right;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    animation: l18 500ms infinite cubic-bezier(0.3, 1, 0, 1);
+}
+@keyframes l18 {
+    33% {
+        inset: -10px;
+        transform: rotate(0deg);
+    }
+    66% {
+        inset: -10px;
+        transform: rotate(90deg);
+    }
+    100% {
+        inset: 0;
+        transform: rotate(90deg);
+    }
+}
+
+/* MQ */
+@media screen and (min-width: 615px) {
+    .games-info {
+        max-width: 660px;
+    }
+    .inner-img-info img {
+        min-width: 350px;
+        min-height: 350px;
+    }
+}
