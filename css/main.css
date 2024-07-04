@@ -93,18 +93,20 @@ input[type="search"]::-webkit-search-cancel-button {
     transition: 700ms;
     cursor: pointer;
 }
+
 .inner-games:hover {
     scale: 1.03;
 }
+
 .mySize {
     height: 200px;
     width: 500px;
 }
+
 .imgStyle {
     background-size: cover;
     background-position: center;
 }
-
 /* End Game Cards */
 
 /* Start Game Info */
@@ -116,13 +118,6 @@ input[type="search"]::-webkit-search-cancel-button {
     cursor: default;
 }
 
-.inner-img-info img {
-    min-width: 200px;
-    min-height: 200px;
-    max-width: 600px;
-    max-height: 600px;
-    object-fit: contain;
-}
 .fa-circle-xmark {
     top: 15px;
     right: 50px;
@@ -194,10 +189,7 @@ input[type="search"]::-webkit-search-cancel-button {
     .games-info {
         max-width: 660px;
     }
-    .inner-img-info img {
-        min-width: 350px;
-        min-height: 350px;
-    }
+
     .mySize {
         height: 300px;
     }
