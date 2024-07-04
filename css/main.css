@@ -80,6 +80,10 @@ h1 span:nth-of-type(2) {
     font-weight: 900;
 }
 
+input[type="search"]::-webkit-search-cancel-button {
+    appearance: none;
+    -webkit-appearance: none;
+}
 /* End Nav */
 
 /* Start Main */
@@ -151,6 +155,14 @@ h1 span:nth-of-type(2) {
     background-repeat: no-repeat;
     animation: l18 500ms infinite cubic-bezier(0.3, 1, 0, 1);
 }
+.form-control:focus {
+    border-color: #ee782e;
+    box-shadow: 0 0 0 0.15rem rgba(238, 120, 46, 0.5);
+}
+.fa-magnifying-glass {
+    right: 15px;
+}
+
 @keyframes l18 {
     33% {
         inset: -10px;
