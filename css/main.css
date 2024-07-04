@@ -96,15 +96,26 @@ input[type="search"]::-webkit-search-cancel-button {
 .inner-games:hover {
     scale: 1.03;
 }
+.mySize {
+    height: 200px;
+    width: 500px;
+}
+.imgStyle {
+    background-size: cover;
+    background-position: center;
+}
+
 /* End Game Cards */
 
 /* Start Game Info */
 .games-info {
     max-width: 400px;
     min-width: 460px;
+    padding-block: 4rem;
     background-color: #383a4d;
     cursor: default;
 }
+
 .inner-img-info img {
     min-width: 200px;
     min-height: 200px;
@@ -186,5 +197,8 @@ input[type="search"]::-webkit-search-cancel-button {
     .inner-img-info img {
         min-width: 350px;
         min-height: 350px;
+    }
+    .mySize {
+        height: 300px;
     }
 }

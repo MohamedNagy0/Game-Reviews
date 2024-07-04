@@ -3,6 +3,7 @@ const navLi = $("nav li");
 const allLinks = Array.from(document.querySelectorAll("ul li a"));
 const blurGamesInfo = document.querySelector(".blur-games-info");
 const searchInput = document.querySelector(".searchInput");
+const gamesInfoBg = document.querySelector(".games-info");
 
 // Global Variables
 let nameOfCat = "Fighting";
@@ -145,67 +146,81 @@ async function getGamesDetails(currentGameId) {
     const response = await url.json();
     disableLoadingAndShowScroll();
     displayGameInfo(response);
+    console.log(response);
 }
 
-function displayGameInfo({
-    thumbnail,
-    description,
-    title,
-    genre,
-    platform,
-    status,
-    short_description,
-    game_url,
-}) {
+function displayGameInfo(response) {
     const gamesInfoContainer = document.querySelector(".gamesInfoContainer");
     gamesInfoContainer.innerHTML = `
     <div class="col-12">
-    <div
-        class="inner-img-info mb-2 d-flex justify-content-center align-items-center"
-    >
+    <div id="carouselExampleInterval" class="carousel slide d-flex justify-content-center" data-bs-ride="carousel">
+  <div class="carousel-inner mySize">
+    <div class="carousel-item active " data-bs-interval="1500">
         <img
-        class="imgInfo"
-            src="${thumbnail}"
-            alt="${description}"
-        />
+        class="w-100 rounded-4"
+            src="${response.screenshots[0].image}"
+            alt="${response.description}"/>    </div>
+    <div class="carousel-item" data-bs-interval="1500">
+        <img
+        class="w-100 rounded-4"
+            src="${response.screenshots[1].image}"
+            alt="${response.description}"/>
+                </div>
+    <div class="carousel-item " data-bs-interval="1500">
+        <img
+        class="w-100 rounded-4"
+            src="${response.screenshots[2].image}"
+            alt="${response.description}"/>
     </div>
+  </div>
+  <button class="carousel-control-prev ps-2" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next pe-2" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
-<div class="col-md-6">
+
+</div>
+<div class="col-md-6 mt-1">
     <div class="info-caption ps-1">
         <h2
             class="w-100  text-center text-md-start mb-3 text-info fw-bold"
         >
-        ${title}
+        ${response.title}
         </h2>
         <h3 class="fs-6 fw-semibold">
             Category:
-            <span class="fs-14 textOrange">${genre}</span>
+            <span class="fs-14 textOrange">${response.genre}</span>
         </h3>
         <h3 class="fs-6 fw-semibold">
             Platform:
-            <span class="fs-14 textBlue">${platform}</span>
+            <span class="fs-14 textBlue">${response.platform}</span>
         </h3>
         <h3 class="fs-6 fw-semibold">
-            Status: <span class="fs-14 textRed">${status}</span>
+            Status: <span class="fs-14 textRed">${response.status}</span>
         </h3>
     </div>
 </div>
-<div class="col-md-6">
+<div class="col-md-6 mt-2">
     <div class="info-dis pe-1">
         <p class="lead fs-6">
-        ${short_description}
+        ${response.short_description}
         </p>
     </div>
 </div>
 <div class="col-12 mt-3 text-center">
     <a
-        href="${game_url}" target="_blank"
+        href="${response.game_url}" target="_blank"
         class="text-dark bg-info p-4 rounded-4 py-2 fw-bold"
         >Play Now!</a
     >
 </div>
 
     `;
+    gamesInfoBg.style.backgroundImage = ` linear-gradient(#525572e1, #525572e1),url(${response.thumbnail})`;
 }
 
 function showGamesInfo() {
